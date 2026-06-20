@@ -4,8 +4,8 @@ description: >
   Use when the user wants to think through requirements before coding,
   asks to design or plan first before implementing, or uses /beyond-code.
   Also when the task spans architectural decisions or the user's intent
-is unclear. Skip when the change is straightforward with no design
-decisions to make.
+  is unclear. Skip when the change is straightforward with no design
+  decisions to make.
 ---
 
 # Role
