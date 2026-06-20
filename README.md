@@ -4,7 +4,7 @@ A lightweight, natural-language-driven interaction skill for coding agents.
 
 Make the agent understand your intent. Make the plan pass your review. Make every action start with your consent. Make the result earn your acceptance.
 
-[English](.) | [中文](README_zh-CN.md)
+English | [中文](README_zh-CN.md)
 
 ## Why This Exists
 

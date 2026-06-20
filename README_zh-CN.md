@@ -4,7 +4,7 @@
 
 让 Agent 明确你的需求，让做出的计划经过你的审核，让 Agent 的行动始于你的同意，让最终成果经过你的检验。
 
-中文 | [English](.)
+[English](README.md) | 中文
 
 ## 为什么会有这个 Skill？
 
