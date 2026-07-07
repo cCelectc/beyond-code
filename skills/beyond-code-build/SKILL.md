@@ -37,8 +37,9 @@ Read `.beyond-code/<slug>/plan.md`.
 
 Before writing ANY code, validate the Implementation Bounds:
 1. For each task's Files field: confirm all paths are in File Inventory
-2. For each task's code steps: grep for `import`, `def`, `class` —
-   confirm all are in API Surface or Dependencies
+2. For each task's declared signatures — its Consumes, Produces, and
+   any signature named in its behavior description: confirm all are in
+   API Surface or Dependencies
 3. If ANY mismatch: STOP. Report the mismatch. Do NOT proceed.
 
 This validation MUST complete before Step 1 of Task 1.

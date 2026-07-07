@@ -75,20 +75,27 @@ Each task MUST follow this format exactly:
 **Consumes:** [upstream interface signatures — exact names and types]
 **Produces:** [downstream interface signatures — exact names and types]
 
-- [ ] Step 1: [Concrete action with complete code or exact command]
+- [ ] Step 1: [Concrete action — exact signatures + precise behavior description, or exact command]
 - [ ] Step 2: [Verification step with full command and expected output]
 - [ ] Step N: Commit
 ```
 
 Task rules:
 - Each step MUST be completable in 2-5 minutes with one clear result
-- Code steps MUST include the complete code, not prose descriptions
+- Code steps MUST specify the exact signatures involved (as declared
+  in API Surface) plus a precise behavior description: the algorithm,
+  control flow, and how each named edge case is handled. They MUST NOT
+  contain the literal function body — the build agent writes that.
+- A behavior description MUST be specific: name which validation runs,
+  which edge cases exist, and how each is handled. Vague hand-waving
+  is a plan failure.
 - Command steps MUST include the exact command and expected output
 - The following are FORBIDDEN as step content: "TBD", "TODO",
   "implement later", "add appropriate error handling", "add validation",
   "handle edge cases", "Similar to Task N", "参考 Task N",
   references to types or functions not defined in any task
-  These are plan failures — fix them before presenting.
+  Each substitutes vagueness for a precise behavior description —
+  these are plan failures — fix them before presenting.
 
 # Stage 4: Write Implementation Bounds
 
@@ -139,7 +146,8 @@ requirements or revise the task mapping.
 
 # Stage 6: Placeholder Scan
 
-Search plan.md for forbidden patterns. Report results:
+Search plan.md for forbidden patterns — each marks a vague step that
+lacks a precise behavior description. Report results:
 
 ```
 ## Placeholder Scan
@@ -151,14 +159,16 @@ Search plan.md for forbidden patterns. Report results:
 - [ ] "handle edge cases": 0 instances
 - [ ] "Similar to Task": 0 instances
 - [ ] All types and functions referenced in tasks are defined in a task
+- [ ] Every code step gives exact signatures + a specific behavior
+      description (which validation, which edge cases, how handled)
 ```
 
 # Stage 7: Cross-validate Bounds against Tasks
 
 For each task, verify:
 - Every path in the task's Files field appears in File Inventory
-- Every import/function/class in the task's code steps appears in
-  API Surface or Dependencies
+- Every signature a task references — in its Consumes, Produces, or
+  behavior description — appears in API Surface or Dependencies
 - No task references a file NOT in File Inventory
 
 Fix any mismatch before presenting.
